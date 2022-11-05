@@ -135,6 +135,16 @@ namespace DBPruebas
             return tblUsuario.ContainsKey(id);
         }
 
+        public bool ContainsUsuario(string eMail)
+        {
+            if (eMail == null)
+            {
+                return false;
+            }
+            var userList = tblUsuario.Where(usuario => usuario.Value.EMail == eMail);
+            return userList.Count() >= 1;
+        }
+
         /// <summary>
         /// Lee la entrada por id.
         /// </summary>
@@ -188,13 +198,16 @@ namespace DBPruebas
             {
                 return null;
             }
-            var userList = tblUsuario.Where(usuario => usuario.Value.EMail == email);
-            if (userList.Count() == 0)
+            if (ContainsUsuario(email))
+            {
+                var userList = tblUsuario.Where(usuario => usuario.Value.EMail == email);
+                Usuario u = userList.First().Value;
+                return LeeUsuario(u.IdUsuario);
+            }
+            else
             {
                 return null;
             }
-            Usuario u = userList.First().Value;
-            return LeeUsuario(u.IdUsuario);
         }
 
         /// <summary>
@@ -351,7 +364,11 @@ namespace DBPruebas
             if (ContainsUsuario(usuario) || usuario == null)
             {
                 return false;
-            } 
+            }
+            else if (ContainsUsuario(usuario.EMail))
+            {
+                return false;
+            }
             else if (ContainsUsuario(usuario.IdUsuario))
             {
                 tblUsuario[usuario.IdUsuario] = usuario;

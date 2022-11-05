@@ -84,7 +84,11 @@ namespace LibreriaDeClases
             return (Encoding.ASCII.GetString(bytes));
         }
 
-        //Metodo para añadir usuarios a la lista
+        /// <summary>
+        /// Metodo para añadir usuarios a la lista 
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public Usuario AddUser(Usuario usuario)
         {
             if (usuario == null)
@@ -95,7 +99,10 @@ namespace LibreriaDeClases
             return usuario;
         }
 
-        //Metodo para cambiar la descripcion
+        /// <summary>
+        /// Metodo para cambiar la descripcion 
+        /// </summary>
+        /// <param name="descripcion"></param>
         public void DescripcionNueva(String descripcion)
         {
             if (descripcion == null)
@@ -105,7 +112,11 @@ namespace LibreriaDeClases
             this.descripcion = descripcion;
         }
 
-        //Metodo eliminar usuario de la lista de usuarios
+        /// <summary>
+        /// Metodo eliminar usuario de la lista de usuarios 
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <returns></returns>
         public bool DeleteUser(Usuario usuario)
         {
             if (usuario == null)
@@ -117,6 +128,25 @@ namespace LibreriaDeClases
                 return false;
             }
             return usuarios.Remove(usuario);
+        }
+
+        /// <summary>
+        /// Crea una entradaLog cuando el usuario lee una entrada.
+        /// </summary>
+        /// <param name="entrada"></param>
+        /// <returns></returns>
+        public EntradaLog LeerEntrada(Usuario usuario)
+        {
+            if (usuario == null)
+            {
+                return null;
+            }
+            if (!usuarios.Contains(usuario))
+            {
+                return null;
+            }
+            EntradaLog entradaLog = new EntradaLog(usuario, this, TipoAcceso.Lectura);
+            return entradaLog;
         }
     }
 }

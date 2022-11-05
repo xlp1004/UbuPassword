@@ -189,5 +189,20 @@ namespace LibreriaDeClases.Tests
             Assert.IsTrue(entradaPrueba3.Usuarios.Count == 1);
 
         }
+
+        [TestMethod]
+        public void LeerEntradaTest()
+        {
+            Assert.IsNull(entradaPrueba.LeerEntrada(null));
+            Assert.IsNull(entradaPrueba.LeerEntrada(usuarioPrueba2));
+            Assert.IsNull(entradaPrueba2.LeerEntrada(usuarioPrueba));
+
+            EntradaLog entradaLog = entradaPrueba.LeerEntrada(usuarioPrueba);
+            Assert.IsNotNull(entradaLog);
+            Assert.AreEqual(entradaLog.Usuario, usuarioPrueba);
+            Assert.AreEqual(entradaLog.Entrada, entradaPrueba);
+            Assert.AreEqual(entradaLog.Acceso, TipoAcceso.Lectura);
+
+        }
     }
 }
