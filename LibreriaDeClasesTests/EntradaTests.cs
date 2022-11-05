@@ -147,6 +147,8 @@ namespace LibreriaDeClases.Tests
             Assert.IsTrue(entradaPrueba3.Usuarios.Contains(usuarioPrueba2));
             Assert.IsFalse(entradaPrueba3.Usuarios.Contains(usuarioPrueba3));
             Assert.IsTrue(entradaPrueba3.Usuarios.Count == 2);
+            entradaPrueba3.AddUser(usuarioPrueba2);
+            Assert.IsTrue(entradaPrueba3.Usuarios.Count == 2);
         }
 
         [TestMethod()]

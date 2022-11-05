@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="DBPruebas.cs" />
     <Compile Include="ICapaDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

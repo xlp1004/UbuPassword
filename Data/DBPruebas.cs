@@ -9,24 +9,19 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using LibreriaDeClases;
 
-//POR QUE NO ME ACEPTA EL PAQUETE DE LIBRERIA DE CLASES ??????
-
 namespace DBPruebas
 {
     public class DBPruebas : IcapaDatos
     {
         //Lista user , lista entradas ,EntradaLog 
 
-        private int idUser = -1;
-        private int idEntrada = -1;
-        private int idLog = -1;
         private SortedList<int, Usuario> tblUsuario = new SortedList<int, Usuario>();
         private SortedList<int, Entrada> tblEntrada = new SortedList<int, Entrada>();
         private SortedList<int, EntradaLog> tblEntradaLog = new SortedList<int, EntradaLog>();
 
 
         /// <summary>
-        ///NUMERO DE USUARIOS 
+        /// devuelve el numero de usuarios.
         /// </summary>
         /// <returns></returns>
         public int NumeroUsuario()
@@ -135,7 +130,7 @@ namespace DBPruebas
             return tblUsuario.ContainsKey(id);
         }
 
-        public bool ContainsUsuario(string eMail)
+        public bool ContainUsuario(string eMail)
         {
             if (eMail == null)
             {
@@ -198,7 +193,7 @@ namespace DBPruebas
             {
                 return null;
             }
-            if (ContainsUsuario(email))
+            if (ContainUsuario(email))
             {
                 var userList = tblUsuario.Where(usuario => usuario.Value.EMail == email);
                 Usuario u = userList.First().Value;
@@ -221,6 +216,10 @@ namespace DBPruebas
             {
                 return false;
             }
+            if (!ContainUsuario(email))
+            {
+                return false;
+            }
             Usuario u = LeeUsuario(email);
             return BorrarUsuario(u);
         }
@@ -230,8 +229,12 @@ namespace DBPruebas
         /// </summary>
         /// <param name="_identificador"></param>
         /// <returns></returns>
-        public bool BorraUsuario(int _identificador)
+        public bool BorrarUsuario(int _identificador)
         {
+            if(_identificador < 0)
+            {
+                return false;
+            }
             if(!tblUsuario.ContainsKey(_identificador))
             {
                 return false;
@@ -278,6 +281,7 @@ namespace DBPruebas
         /// <returns></returns>
         public bool BorraEntrada(int id)
         {
+            if (id < 0) { return false; }
             if (!ContieneEntrada(id))
             {
                 return false;
@@ -292,6 +296,10 @@ namespace DBPruebas
         /// <returns></returns>
         public bool BorraEntrada(Entrada entrada)
         {
+            if(entrada == null)
+            {
+                return false;
+            }
             if (!ContieneEntrada(entrada))
             {
                 return false;
@@ -306,6 +314,7 @@ namespace DBPruebas
         /// <returns></returns>
         public bool BorraEntradaLog(int id)
         {
+            if(id < 0) { return false; }
             if (!ContainsEntradaLog(id))
             {
                 return false;
@@ -320,6 +329,7 @@ namespace DBPruebas
         /// <returns></returns>
         public bool BorraEntradaLog(EntradaLog entradaLog)
         {
+            if(entradaLog == null) { return false; }
             if (!ContainsEntradaLog(entradaLog))
             {
                 return false;
@@ -337,13 +347,6 @@ namespace DBPruebas
             if (ContieneEntrada(entrada) || entrada == null)
             {
                 return false;
-            }
-            else if (ContieneEntrada(entrada.IdEntrada))
-            {
-                EntradaLog entradaLog = new EntradaLog(entrada.Usuario, entrada, TipoAcceso.Escritura);
-                InsertarEntradaLog(entradaLog);
-                tblEntrada[entrada.IdEntrada] = entrada;
-                return true;
             }
             else
             {
@@ -365,15 +368,10 @@ namespace DBPruebas
             {
                 return false;
             }
-            else if (ContainsUsuario(usuario.EMail))
+            else if (ContainUsuario(usuario.EMail))
             {
                 return false;
             }
-            else if (ContainsUsuario(usuario.IdUsuario))
-            {
-                tblUsuario[usuario.IdUsuario] = usuario;
-                return true;
-            } 
             else
             {
                 tblUsuario.Add(usuario.IdUsuario, usuario);
@@ -391,11 +389,6 @@ namespace DBPruebas
             if (ContainsEntradaLog(entradalog) || entradalog == null)
             {
                 return false;
-            }
-            else if (ContainsEntradaLog(entradalog.IdLog))
-            {
-                tblEntradaLog[entradalog.IdLog] = entradalog;
-                return true;
             }
             else
             {

@@ -89,14 +89,17 @@ namespace LibreriaDeClases
         /// </summary>
         /// <param name="usuario"></param>
         /// <returns></returns>
-        public Usuario AddUser(Usuario usuario)
+        public void AddUser(Usuario usuario)
         {
             if (usuario == null)
             {
-                return null;
+                return;
+            }
+            if (usuarios.Contains(usuario))
+            {
+                return;
             }
             usuarios.Add(usuario);
-            return usuario;
         }
 
         /// <summary>
