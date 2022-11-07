@@ -25,11 +25,13 @@ namespace LibreriaDeClases
         {
             if(nombre == null || apellidos == null || eMail == null || contrasenya == null)
             {
+                this.idPropietario = -1;
                 return;
             }
             if (Regex.IsMatch(nombre, patron) || Regex.IsMatch(apellidos, patron) || !Regex.IsMatch(eMail, patron2) 
                 || contrasenya.Length < 8 || !Regex.IsMatch(contrasenya, patron3) || !Regex.IsMatch(contrasenya, patron4))
             {
+                this.idPropietario = -1;
                 return;
             }
             this.idPropietario = contadorId;

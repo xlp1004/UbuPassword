@@ -224,11 +224,17 @@ namespace DBPruebas.Tests
         [TestMethod()]
         public void InsertarEntradaTest()
         {
+            Entrada entrada2 = new Entrada(usuario, null, "nombre");
             Assert.IsFalse(dbPruebas.InsertarEntrada(null));
+            Assert.IsTrue(dbPruebas.NumeroEntradasLog() == 0);
+            Assert.IsFalse(dbPruebas.InsertarEntrada(entrada2));
             Assert.IsTrue(dbPruebas.NumeroEntradasLog() == 0);
             Assert.IsTrue(dbPruebas.InsertarEntrada(entrada));
             Assert.IsTrue(dbPruebas.NumeroEntradasLog() == 1);
             Assert.IsFalse(dbPruebas.InsertarEntrada(entrada));
+            entrada2.IdEntrada = entrada.IdEntrada;
+            Assert.IsFalse(dbPruebas.InsertarEntrada(entrada2));
+            Assert.IsTrue(dbPruebas.NumeroEntradasLog() == 1);
         }
 
         [TestMethod()]
@@ -237,20 +243,32 @@ namespace DBPruebas.Tests
             string Email2 = "Avg@ubu.es";
             Usuario usuario2 = new Usuario(Nombre, Apellidos, Email, Password);
             Usuario usuario3 = new Usuario(Nombre, Apellidos, Email2, Password);
+            Usuario usuario4 = new Usuario(null, null, null, null);
 
             Assert.IsFalse(dbPruebas.InsertarUsuario(null));
+            Assert.IsTrue(dbPruebas.NumeroUsuario() == 2);
             Assert.IsTrue(dbPruebas.InsertarUsuario(usuario));
+            Assert.IsTrue(dbPruebas.NumeroUsuario() == 3);
             Assert.IsFalse(dbPruebas.InsertarUsuario(usuario));
             Assert.IsFalse(dbPruebas.InsertarUsuario(usuario2));
+            Assert.IsFalse(dbPruebas.InsertarUsuario(usuario4));
+            Assert.IsTrue(dbPruebas.NumeroUsuario() == 3);
             Assert.IsTrue(dbPruebas.InsertarUsuario(usuario3));
+            Assert.IsTrue(dbPruebas.NumeroUsuario() == 4);
         }
 
         [TestMethod()]
         public void InsertarEntradaLogTest()
         {
+            EntradaLog entradaLog2 = new EntradaLog(null, null, TipoAcceso.Escritura);
+
             Assert.IsFalse(dbPruebas.InsertarEntradaLog(null));
+            Assert.IsTrue(dbPruebas.NumeroEntradasLog() == 0);
             Assert.IsTrue(dbPruebas.InsertarEntradaLog(entradaLog));
+            Assert.IsTrue(dbPruebas.NumeroEntradasLog() == 1);
             Assert.IsFalse(dbPruebas.InsertarEntradaLog(entradaLog));
+            Assert.IsFalse(dbPruebas.InsertarEntradaLog(entradaLog2));
+            Assert.IsTrue(dbPruebas.NumeroEntradasLog() == 1);
         }
     }
 }

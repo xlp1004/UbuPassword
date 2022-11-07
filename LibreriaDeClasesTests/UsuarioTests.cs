@@ -54,6 +54,7 @@ namespace LibreriaDeClases.Tests
             Assert.IsNull(usuarioPrueba3.Contrasenya);
             Assert.IsFalse(usuarioPrueba3.Gestor);
             Assert.IsNotNull(usuarioPrueba3.IdUsuario);
+            Assert.IsTrue(usuarioPrueba3.IdUsuario == -1);
         }
 
         [TestMethod()]

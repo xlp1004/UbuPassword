@@ -42,6 +42,7 @@ namespace LibreriaDeClases.Tests
             Assert.IsNull(entradaPrueba4.Usuario);
             Assert.IsNull(entradaPrueba4.Contrasenya);
             Assert.IsNull(entradaPrueba4.NombreEntrada);
+            Assert.IsTrue(entradaPrueba4.IdEntrada == -1);
             Assert.IsInstanceOfType(entradaPrueba, typeof(Entrada));
             Assert.IsInstanceOfType(entradaPrueba2, typeof(Entrada));
             Assert.IsNotInstanceOfType(entradaPrueba3, typeof(Entrada));

@@ -24,7 +24,11 @@ namespace LibreriaDeClases
 
         public EntradaLog(Usuario usuario, Entrada entrada, TipoAcceso acceso)
         {
-
+            if(entrada == null || usuario == null)
+            {
+                idLog = -1;
+                return;
+            }
             idLog = contadorId;
             fecha = DateOnly.FromDateTime(DateTime.Now);
             hora = TimeOnly.FromDateTime(DateTime.Now);

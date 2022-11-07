@@ -395,6 +395,10 @@ namespace DBPruebas
             {
                 return false;
             }
+            else if (ContieneEntrada(entrada.IdEntrada) || entrada.IdEntrada == -1)
+            {
+                return false;
+            }
             else
             {
                 EntradaLog entradaLog = new EntradaLog(entrada.Usuario, entrada, TipoAcceso.Escritura);
@@ -415,7 +419,7 @@ namespace DBPruebas
             {
                 return false;
             }
-            else if (ContainUsuario(usuario.EMail) || ContainsUsuario(usuario.IdUsuario))
+            else if (ContainUsuario(usuario.EMail) || ContainsUsuario(usuario.IdUsuario) || usuario.IdUsuario == -1)
             {
                 return false;
             }
@@ -434,6 +438,10 @@ namespace DBPruebas
         public bool InsertarEntradaLog(EntradaLog entradalog)
         {
             if (ContainsEntradaLog(entradalog) || entradalog == null)
+            {
+                return false;
+            }
+            else if (ContainsEntradaLog(entradalog.IdLog) || entradalog.IdLog == -1)
             {
                 return false;
             }
