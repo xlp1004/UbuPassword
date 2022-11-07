@@ -7,14 +7,14 @@ namespace LibreriaDeClases
     public class Usuario
     {
         private Int16 idPropietario;
-        private static Int16 contadorId = 0;
+        private static Int16 contadorId;
         private String nombre;
         private String apellidos;
         private String eMail;
         private String contrasenya;
         private Boolean gestor = false;
-        private Int16 contadorSecretos = 0;
-        private const int numMaxSecretosH = 5;
+        public Int16 contadorSecretos = 0;
+        public const Int16 numMaxSecretosH = 5;
         private TimeOnly tiempoPrimerSecreto;
         private readonly string patron = "[!\"·$%&/()=¿¡?'_:;,|@#€*+.]";
         private readonly string patron2 = "[a-zA-Z0-9]+@ubu\\.es";
@@ -44,6 +44,12 @@ namespace LibreriaDeClases
         {
             get { return idPropietario; }
             set { idPropietario = value; }
+        }
+
+        public Int16 ContadorId
+        {
+            get { return contadorId; }
+            set { contadorId = value; }
         }
 
         public String Nombre
@@ -99,7 +105,7 @@ namespace LibreriaDeClases
         }
 
         /// <summary>
-        /// Metodo para combertir un usuario en gestor, si el usuario actual es un gestor.
+        /// Metodo para convertir un usuario en gestor, si el usuario actual es un gestor.
         /// </summary>
         /// <param name="usuario"></param>
         public bool CrearGestor(Usuario usuario)

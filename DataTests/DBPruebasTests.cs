@@ -12,7 +12,7 @@ namespace DBPruebas.Tests
     [TestClass()]
     public class DBPruebasTests
     {
-        DBPruebas dbPruebas = new DBPruebas();
+        DBPrueba dbPruebas = new DBPrueba();
 
 
         private const string Nombre = "Alvaro";
@@ -30,9 +30,9 @@ namespace DBPruebas.Tests
         [TestMethod()]
         public void NumeroUsuarioTest()
         {
-            Assert.IsTrue(dbPruebas.NumeroUsuario() == 0);
+            Assert.IsTrue(dbPruebas.NumeroUsuario() == 2);
             dbPruebas.InsertarUsuario(usuario);
-            Assert.IsTrue(dbPruebas.NumeroUsuario() == 1);
+            Assert.IsTrue(dbPruebas.NumeroUsuario() == 3);
         }
 
         [TestMethod()]

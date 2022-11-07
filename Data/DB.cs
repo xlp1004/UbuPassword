@@ -1,45 +1,42 @@
-﻿using Data;
+﻿using LibreriaDeClases;
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Net.Sockets;
-using LibreriaDeClases;
 
-namespace DBPruebas
+namespace Data
 {
-    public class DBPrueba : IcapaDatos
+    public class DB
     {
-      
         //Lista user , lista entradas ,EntradaLog 
 
         private SortedList<int, Usuario> tblUsuario = new SortedList<int, Usuario>();
         private SortedList<int, Entrada> tblEntrada = new SortedList<int, Entrada>();
         private SortedList<int, EntradaLog> tblEntradaLog = new SortedList<int, EntradaLog>();
-        private Usuario usuarioPruebaGestor = new Usuario("Gestor", "Original", "admin@ubu.es", "1234abcd");
-        private Usuario usuarioPruebaNoGestor = new Usuario("Cualquiera", "Normal", "user@ubu.es", "6789abcd");
-        private static DBPrueba instanciada;
+        private static DB instanciada;
         private static bool cargarDatos;
-        public DBPrueba() {
-          
-            /*tblUsuario = new SortedList<int, Usuario>();
+
+       
+        public DB()
+        {
+
+            tblUsuario = new SortedList<int, Usuario>();
             tblEntrada = new SortedList<int, Entrada>();
-            tblEntradaLog = new SortedList<int, EntradaLog>();*/
+            tblEntradaLog = new SortedList<int, EntradaLog>();
+            Usuario usuarioPruebaGestor = new Usuario("Gestor", "Original","admin@gmail.com", "pass1234");
             usuarioPruebaGestor.Gestor = true;
             InsertarUsuario(usuarioPruebaGestor);
-            InsertarUsuario(usuarioPruebaNoGestor);
-
+            
         }
 
-        public static DBPrueba cargarDB()
-        {
+        public static DB cargarDB() {
 
             if (instanciada == null)
             {
-                instanciada = new DBPrueba();
+                instanciada = new DB();
                 cargarDatos = false;
             }
             return instanciada;
@@ -50,18 +47,18 @@ namespace DBPruebas
         {
             if (cargarDatos == false)
             {
-                DBPrueba db = cargarDB();
+                DB db = cargarDB();
                 //Usuario Gestor 
                 Usuario usuarioAlvaro = new Usuario("Alvaro", "Lopez", "Alv@ubu.es", "pass1234");
                 usuarioAlvaro.Gestor = true;
-                //Usuario Normal
+               //Usuario Normal
                 Usuario usuarioAdolfo = new Usuario("Adolfo", "Vine", "avg@ubu.es", "pass4567");
 
 
                 // Insert all sample data to DB.
                 db.InsertarUsuario(usuarioAlvaro);
                 db.InsertarUsuario(usuarioAdolfo);
-
+           
 
                 // Confirm data load.
                 cargarDatos = true;
@@ -73,7 +70,7 @@ namespace DBPruebas
         /// <returns></returns>
         public int NumeroUsuario()
         {
-            return tblUsuario.Count();
+            return tblUsuario.Count;
         }
 
         /// <summary>
@@ -115,7 +112,8 @@ namespace DBPruebas
         /// <returns></returns>
         public bool ContieneEntrada(int id)
         {
-            if (id < 0) {
+            if (id < 0)
+            {
                 return false;
             }
             return tblEntrada.ContainsKey(id);
@@ -259,7 +257,7 @@ namespace DBPruebas
         /// <returns></returns>
         public bool BorraUsuario(string email)
         {
-            if(email == null)
+            if (email == null)
             {
                 return false;
             }
@@ -278,11 +276,11 @@ namespace DBPruebas
         /// <returns></returns>
         public bool BorrarUsuario(int _identificador)
         {
-            if(_identificador < 0)
+            if (_identificador < 0)
             {
                 return false;
             }
-            if(!tblUsuario.ContainsKey(_identificador))
+            if (!tblUsuario.ContainsKey(_identificador))
             {
                 return false;
             }
@@ -305,7 +303,7 @@ namespace DBPruebas
             {
                 return false;
             }
-            
+
             IList<Entrada> entradas = tblEntrada.Values;
 
             foreach (Entrada entrada in entradas)
@@ -313,7 +311,7 @@ namespace DBPruebas
                 bool isUsuario = entrada.DeleteUser(usuario);
 
                 if (!isUsuario)
-                {                  
+                {
                     return false;
                 }
             }
@@ -343,7 +341,7 @@ namespace DBPruebas
         /// <returns></returns>
         public bool BorraEntrada(Entrada entrada)
         {
-            if(entrada == null)
+            if (entrada == null)
             {
                 return false;
             }
@@ -361,7 +359,7 @@ namespace DBPruebas
         /// <returns></returns>
         public bool BorraEntradaLog(int id)
         {
-            if(id < 0) { return false; }
+            if (id < 0) { return false; }
             if (!ContainsEntradaLog(id))
             {
                 return false;
@@ -376,7 +374,7 @@ namespace DBPruebas
         /// <returns></returns>
         public bool BorraEntradaLog(EntradaLog entradaLog)
         {
-            if(entradaLog == null) { return false; }
+            if (entradaLog == null) { return false; }
             if (!ContainsEntradaLog(entradaLog))
             {
                 return false;
@@ -403,7 +401,7 @@ namespace DBPruebas
                 return true;
             }
         }
-        
+
         /// <summary>
         /// Insertar un usuario en su lista
         /// </summary>
@@ -415,7 +413,7 @@ namespace DBPruebas
             {
                 return false;
             }
-            else if (ContainUsuario(usuario.EMail) || ContainsUsuario(usuario.IdUsuario))
+            else if (ContainUsuario(usuario.EMail))
             {
                 return false;
             }
@@ -443,6 +441,5 @@ namespace DBPruebas
                 return true;
             }
         }
-
     }
 }
