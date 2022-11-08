@@ -8,11 +8,22 @@
     <title></title>
 </head>
 <body>
+    <h1 style="font-size=40px">EntradasLog</h1>
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-        </asp:GridView>
+      <asp:GridView ID="gvwProyectos" runat="server" AutoGenerateColumns="false" onrowcommand="gvwProyectos_RowCommand" Width="90%" HorizontalAlign="Center">
+             <RowStyle HorizontalAlign="Center" />
+                 <Columns>
+                     <asp:BoundField DataField="Id." HeaderText="Id." />
+                     <asp:BoundField DataField="Email" HeaderText="Email" />
+                     <asp:BoundField DataField="Entrada" HeaderText="Entrada" />
+                     <asp:BoundField DataField="TipoAcceso" HeaderText="TipoAcceso" />
+                     <asp:BoundField DataField="HoraAcceso" HeaderText="HoraAcceso" />
+                    
+                    
+                 </Columns>
+</asp:GridView>
     </form>
 </body>
 </html>

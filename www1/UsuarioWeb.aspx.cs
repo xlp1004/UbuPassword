@@ -19,7 +19,7 @@ namespace www1
              if (WebForm1.registrado == false) {
 
                 Response.Redirect("https://localhost:44338/InicioSesion.aspx");
-         }
+             }
         }
 
         protected void CerrarSesion_Click(object sender, EventArgs e)
