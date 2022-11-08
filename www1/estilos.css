@@ -6,6 +6,7 @@
 
 h1 {
     font-family: 'Cyber', sans-serif;
+    color: #ff0000;
 }
 
 
@@ -17,7 +18,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     font-family: 'Cyber', sans-serif;
-    background: linear-gradient(90deg, #ffed86 70%, #ffed86 70%), #fff700;
+    background: linear-gradient(90deg, #f5ed00 70%, #e6de00 70%), #fff700;
 }
 
     body .cybr-btn + .cybr-btn {

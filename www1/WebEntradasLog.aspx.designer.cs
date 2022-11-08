@@ -11,7 +11,7 @@ namespace www1
 {
 
 
-    public partial class WebForm2
+    public partial class WebEntradasLog
     {
 
         /// <summary>
@@ -24,30 +24,12 @@ namespace www1
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control CambiarAUsuarioButton.
+        /// Control GridView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CambiarAUsuarioButton;
-
-        /// <summary>
-        /// Control VerEntradaLogs.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button VerEntradaLogs;
-
-        /// <summary>
-        /// Control CerrarSesiónButton.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CerrarSesiónButton;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

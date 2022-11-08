@@ -9,17 +9,12 @@
     <title></title>
 </head>
 <body>
-       <h1 align="center"> Usuario </h1>
+       <h1 align="center" style="font-size: 40px"> Usuario </h1>
     <h2> Bienvenido a la página del usuario</h2>
     <form id="form1" runat="server">
         
 
-        <button class="cybr-btn" type="submit">
-              
-                <asp:Button ID="CerrarSesión" runat="server" OnClick="CerrarSesion_Click" Text="Cerrar Sesión" CssClass="cybr-btn" />
-              
-                
-        </button>
+
 
         <h2> Crea tu entrada </h2>
         <label >
@@ -39,6 +34,15 @@
         <button class="cybr-btn w-full flex justify-between items-center" type="submit">
                 
                 <asp:Button ID="EntradaButton" runat="server" OnClick="EntradaButton_Click" Text="Enviar Entrada" CssClass="cybr-btn" />
+                <span aria-hidden class="cybr-btn__glitch">Enviar</span>
+                <span aria-hidden class="cybr-btn__tag">22/23</span>
+        </button>
+
+                <button class="cybr-btn" type="submit">
+              
+                <asp:Button ID="CerrarSesión" runat="server" OnClick="CerrarSesion_Click" Text="Cerrar Sesión" CssClass="cybr-btn" />
+                <span aria-hidden class="cybr-btn__glitch">Cerrar Sesión</span>
+                <span aria-hidden class="cybr-btn__tag">22/23</span>
                 
         </button>
 

@@ -10,7 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h1 align="center" >INICIO DE SESIÓN</h1>
+        <h1 align="center" style="font-size: 40px" >INICIO DE SESIÓN</h1>
         <label >
             Email
             <asp:TextBox autofocus="autofocus" runat="server" ID="Email_Input" AutoCompleteType="Email" TextMode="Email" Text="" placeholder="Escribe su email"></asp:TextBox>
@@ -26,7 +26,8 @@
         <button class="cybr-btn type="submit">
               
                 <asp:Button ID="Button1" runat="server" Text="Enviar" OnClick="Button1_Click" CssClass="cybr-btn" />
-                
+                <span aria-hidden class="cybr-btn__glitch">Enviar</span>
+                <span aria-hidden class="cybr-btn__tag">22/23</span>
         </button>
            
             

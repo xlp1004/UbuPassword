@@ -18,7 +18,7 @@ namespace www1
         {
              if (WebForm1.registrado == false) {
 
-             Response.Redirect("https://localhost:44338/InicioSesion.aspx");
+                Response.Redirect("https://localhost:44338/InicioSesion.aspx");
          }
         }
 
@@ -34,17 +34,31 @@ namespace www1
          
             String nombreEntrada = EntradaNombre_Input.Text;
             String passwordEntrada = Password_Input.Text;
-            if (uIS.ContadorSecretos > 5)
+            Response.Write("Contador de secretos del usuarioIS: ");
+            Response.Write(uIS.contadorSecretos+1);
+
+
+
+            if (uIS.ContadorSecretos < 4 )
             {
-                Response.Write("<script>alert('Has Superado los secretos por hora (5)')</script>");
+                if (nombreEntrada == "" || passwordEntrada == "" || uIS == null)
+                {
+                    Response.Write("<script>alert('Algún campo es nulo ')</script>");
+                }
+                else
+                {
+                    
+                    Entrada entrada = uIS.CrearEntrada(passwordEntrada, nombreEntrada);
+                    WebForm1.db1.InsertarEntrada(entrada);
+
+                    Response.Write("<script>alert('Entrada Creada')</script>");
+                }
+
+            }
+            else { Response.Write("<script>alert('Has Superado los 5 secretos por hora ')</script>"); 
             }
 
-            if (nombreEntrada != null && passwordEntrada != null && uIS != null && uIS.ContadorSecretos <= 5) {
-                Entrada entrada = uIS.CrearEntrada(passwordEntrada, nombreEntrada);
-                WebForm1.db1.InsertarEntrada(entrada);
-                Response.Write("<script>alert('Entrada Creada')</script>");
-            }
-          
+
         }
 
         //Pruebas de aceptación a exportar es solo las de nuestro requisito  es decir las de enviar entrada 

@@ -9,23 +9,33 @@
     <title></title>
 </head>
 <body>
-    <h1 align="center"> Gestor </h1>
+    <h1 align="center" style="font-size: 40px" > Gestor </h1>
     <h2> Bienvenido a la página del gestor</h2>
     <form id="form1" runat="server">
                
         <button class="cybr-btn" type="submit">
               
                 <asp:Button ID="CambiarAUsuarioButton" runat="server" OnClick="CambiarAUsuario" Text="Cambiar a Usuario" CssClass="cybr-btn" />
+                <span aria-hidden class="cybr-btn__glitch">Cambiar Usuario</span>
+                <span aria-hidden class="cybr-btn__tag">22/23</span>
+                
+        </button>
+        <button class="cybr-btn" type="submit">
               
+                <asp:Button ID="VerEntradaLogs" runat="server" OnClick="EntradaLog_Click" Text="VerEntradaLogs" CssClass="cybr-btn" />              
+                <span aria-hidden class="cybr-btn__glitch">Enviar</span>
+                <span aria-hidden class="cybr-btn__tag">22/23</span>
+        </button>
+
+       <button class="cybr-btn" type="submit">
+              
+                <asp:Button ID="CerrarSesiónButton" runat="server" OnClick="CerrarSesion_Click" Text="Cerrar Sesión" CssClass="cybr-btn" />
+                <span aria-hidden class="cybr-btn__glitch">Enviar</span>
+                <span aria-hidden class="cybr-btn__tag">22/23</span>
                 
         </button>
 
-                <button class="cybr-btn" type="submit">
-              
-                <asp:Button ID="CerrarSesiónButton" runat="server" OnClick="CerrarSesion_Click" Text="Cerrar Sesión" CssClass="cybr-btn" />
-              
-                
-        </button>
+
 
            
     </form>

@@ -16,7 +16,7 @@ namespace www1
     public partial class WebForm1 : System.Web.UI.Page
     {
         public static DBPrueba db1;
-        public static DB db;
+       
         public static Usuario usuarioIS;
       
         public static Boolean registrado = false;

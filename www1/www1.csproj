@@ -73,6 +73,7 @@
     <Content Include="Web.config" />
     <Content Include="InicioSesion.aspx" />
     <Content Include="GestorWeb.aspx" />
+    <Content Include="WebEntradasLog.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -99,6 +100,13 @@
     </Compile>
     <Compile Include="UsuarioWeb.aspx.designer.cs">
       <DependentUpon>UsuarioWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebEntradasLog.aspx.cs">
+      <DependentUpon>WebEntradasLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebEntradasLog.aspx.designer.cs">
+      <DependentUpon>WebEntradasLog.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

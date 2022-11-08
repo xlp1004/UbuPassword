@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,7 +20,7 @@ namespace www1
 
         protected void CambiarAUsuario(object sender, EventArgs e)
         {
-            Response.Redirect("https://localhost:44338/UsuarioWeb.aspx");
+            Server.Transfer("UsuarioWeb.aspx", true);
         }
 
         protected void CerrarSesion_Click(object sender, EventArgs e)
@@ -27,6 +28,11 @@ namespace www1
             WebForm1.registrado = false;
 
             Response.Redirect("https://localhost:44338/InicioSesion.aspx");
+        }
+
+        protected void EntradaLog_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("WebEntradasLog.aspx",true);
         }
     }
 }
