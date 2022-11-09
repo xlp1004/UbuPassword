@@ -244,10 +244,12 @@ namespace LibreriaDeClases
         {
             TimeOnly tiempoActual = TimeOnly.FromDateTime(DateTime.Now);
             TimeOnly tiempoPrimerSecretoPrueba = tiempoPrimerSecreto;
-            if (tiempoPrimerSecretoPrueba.AddMinutes(60) <= (tiempoActual))
+            TimeOnly tiempoPrimerSecretoPrueba2 = tiempoPrimerSecreto;
+            if (tiempoPrimerSecretoPrueba.AddMinutes(60) <= tiempoActual && tiempoPrimerSecretoPrueba2 <= tiempoActual.AddMinutes(-60))
             {
                 contadorSecretos = 0;
             }
+
             
         }
     }
