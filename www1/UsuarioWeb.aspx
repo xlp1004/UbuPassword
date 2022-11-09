@@ -19,7 +19,8 @@
         <h2> Crea tu entrada </h2>
         <label >
             Nombre Entrada
-            <asp:TextBox autofocus="autofocus" runat="server" ID="EntradaNombre_Input"  Text="" placeholder="Escribe su entrada aqui" CssClass="textobox"></asp:TextBox>
+            <br />
+            <asp:TextBox autofocus="autofocus" runat="server" ID="EntradaNombre_Input"  Text="" placeholder="Escribe su entrada aqui" ></asp:TextBox>
         </label>
 
        
@@ -30,10 +31,16 @@
             </span>
             <asp:TextBox runat="server" ID="Password_Input" TextMode="Password" Text="" placeholder="Escribe su contraseña" ></asp:TextBox>
         </div>
-
+        <br />
         <button class="cybr-btn w-full flex justify-between items-center" type="submit">
                 
                 <asp:Button ID="EntradaButton" runat="server" OnClick="EntradaButton_Click" Text="Enviar Entrada" CssClass="cybr-btn" />
+                <span aria-hidden class="cybr-btn__glitch">Enviar</span>
+                <span aria-hidden class="cybr-btn__tag">22/23</span>
+        </button>
+        <button class="cybr-btn w-full flex justify-between items-center" type="submit">
+                
+                <asp:Button ID="CambiarContraseña" runat="server" OnClick="CambiarContraseña_Click" Text="Cambiar Contraseña" CssClass="cybr-btn" />
                 <span aria-hidden class="cybr-btn__glitch">Enviar</span>
                 <span aria-hidden class="cybr-btn__tag">22/23</span>
         </button>

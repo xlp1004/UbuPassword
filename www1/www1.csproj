@@ -68,6 +68,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BorrarUsuarioGestorWeb.aspx" />
+    <Content Include="CambiarContraseña.aspx" />
+    <Content Include="CrearUsuarioGestorWeb.aspx" />
     <Content Include="estilos.css" />
     <Content Include="Global.asax" />
     <Content Include="UsuarioWeb.aspx" />
@@ -77,6 +80,27 @@
     <Content Include="WebEntradasLog.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BorrarUsuarioGestorWeb.aspx.cs">
+      <DependentUpon>BorrarUsuarioGestorWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BorrarUsuarioGestorWeb.aspx.designer.cs">
+      <DependentUpon>BorrarUsuarioGestorWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CambiarContraseña.aspx.cs">
+      <DependentUpon>CambiarContraseña.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CambiarContraseña.aspx.designer.cs">
+      <DependentUpon>CambiarContraseña.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearUsuarioGestorWeb.aspx.cs">
+      <DependentUpon>CrearUsuarioGestorWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearUsuarioGestorWeb.aspx.designer.cs">
+      <DependentUpon>CrearUsuarioGestorWeb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

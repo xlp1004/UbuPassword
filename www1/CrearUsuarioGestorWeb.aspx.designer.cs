@@ -11,7 +11,7 @@ namespace www1
 {
 
 
-    public partial class WebForm2
+    public partial class CrearUsuarioGestorWeb
     {
 
         /// <summary>
@@ -24,48 +24,66 @@ namespace www1
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control CambiarAUsuarioButton.
+        /// Control Nombre_Usuario_Input.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CambiarAUsuarioButton;
+        protected global::System.Web.UI.WebControls.TextBox Nombre_Usuario_Input;
 
         /// <summary>
-        /// Control VerEntradaLogs.
+        /// Control Apellido_Usuario_Input.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button VerEntradaLogs;
+        protected global::System.Web.UI.WebControls.TextBox Apellido_Usuario_Input;
 
         /// <summary>
-        /// Control BotonCrearUsuario.
+        /// Control Email_Usuario_Input.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BotonCrearUsuario;
+        protected global::System.Web.UI.WebControls.TextBox Email_Usuario_Input;
 
         /// <summary>
-        /// Control BorrarUsuarioButton.
+        /// Control CheckBox1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BorrarUsuarioButton;
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
 
         /// <summary>
-        /// Control CerrarSesiónButton.
+        /// Control Password_Input.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CerrarSesiónButton;
+        protected global::System.Web.UI.WebControls.TextBox Password_Input;
+
+        /// <summary>
+        /// Control CrearUsuario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CrearUsuario;
+
+        /// <summary>
+        /// Control VolverAGestor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button VolverAGestor;
     }
 }

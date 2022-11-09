@@ -13,6 +13,7 @@
         <h1 align="center" style="font-size: 40px" >INICIO DE SESIÓN</h1>
         <label >
             Email
+            <br />
             <asp:TextBox autofocus="autofocus" runat="server" ID="Email_Input" AutoCompleteType="Email" TextMode="Email" Text="" placeholder="Escribe su email"></asp:TextBox>
         </label>
 
@@ -22,12 +23,12 @@
             </span>
             <asp:TextBox runat="server" ID="Password_Input" TextMode="Password" Text="" placeholder="Escribe su contraseña"  ></asp:TextBox>
         </div>
+        <br />
        
         <button class="cybr-btn type="submit">
               
                 <asp:Button ID="Button1" runat="server" Text="Enviar" OnClick="Button1_Click" CssClass="cybr-btn" />
-                <span aria-hidden class="cybr-btn__glitch">Enviar</span>
-                <span aria-hidden class="cybr-btn__tag">22/23</span>
+
         </button>
            
             

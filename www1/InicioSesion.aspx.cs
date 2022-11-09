@@ -10,6 +10,7 @@ using DBPruebas;
 using System.Diagnostics;
 using System.Web.Configuration;
 using System.Security.Cryptography;
+using System.Runtime.Remoting.Channels;
 
 namespace www1
 {
@@ -23,10 +24,17 @@ namespace www1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            db1 = new DBPrueba();
+            if (db1==null)
+            {
+                db1 = new DBPrueba(); 
+                
+                Application["db"] = db1;
 
-            //DB.EjemplosDatos();
-            DBPrueba.EjemplosDatos();
+            }
+            if (usuarioIS == null)
+            {
+                usuarioIS = (Usuario)Session["usuarioAutenticado"];
+            }
 
         }
       
