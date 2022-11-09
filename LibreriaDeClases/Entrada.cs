@@ -165,5 +165,24 @@ namespace LibreriaDeClases
             }
             return usuarios.Remove(usuario);
         }
+
+        /// <summary>
+        /// ToString de las entradas.
+        /// </summary>
+        /// <returns></returns>
+        override
+        public String ToString()
+        {
+            String s = "";
+            if(idEntrada == -1)
+            {
+                s = "null";
+            }
+            else
+            {
+                s = NombreEntrada;
+            }
+            return s;
+        }
     }
 }

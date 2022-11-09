@@ -62,7 +62,7 @@ namespace LibreriaDeClases
             IdLog = contadorId;
             fecha = DateOnly.FromDateTime(DateTime.Now);
             hora = TimeOnly.FromDateTime(DateTime.Now);
-            entrada = null;
+            entrada = new Entrada(null, null, null);
             acceso = TipoAcceso.LogIn;
             this.usuario = usuario;
             contadorId++;

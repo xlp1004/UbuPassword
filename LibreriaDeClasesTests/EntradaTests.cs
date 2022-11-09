@@ -235,6 +235,17 @@ namespace LibreriaDeClases.Tests
             Assert.IsFalse(entradaPrueba3.Usuarios.Contains(usuarioPrueba2));
             Assert.IsFalse(entradaPrueba3.Usuarios.Contains(usuarioPrueba3));
             Assert.IsTrue(entradaPrueba3.Usuarios.Count == 1);
+        }
+
+        /// <summary>
+        /// Test del metodo ToString
+        /// </summary>
+        [TestMethod]
+        public void TestToString()
+        {
+            Entrada entradaPrueba3 = new Entrada(null, null, null);
+            Assert.AreEqual(entradaPrueba.ToString(), entradaPrueba.NombreEntrada);
+            Assert.AreEqual(entradaPrueba3.ToString(), "null");
 
         }
     }

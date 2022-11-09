@@ -60,6 +60,19 @@ namespace LibreriaDeClases.Tests
         }
 
         /// <summary>
+        /// Test del segundo constructor de EntradaLog
+        /// </summary>
+        [TestMethod()]
+        public void TestLogIn()
+        {
+            EntradaLog entradaLog2 = new EntradaLog(usuarioPrueba);
+            EntradaLog entradaLog3 = new EntradaLog(null);
+            Assert.AreEqual(entradaLog2.Acceso, TipoAcceso.LogIn);
+            Assert.AreEqual(entradaLog2.Usuario, usuarioPrueba);
+            Assert.IsTrue(entradaLog3.IdLog == -1);
+        }
+
+        /// <summary>
         /// Test de id de las entradasLog
         /// </summary>
         [TestMethod()]
