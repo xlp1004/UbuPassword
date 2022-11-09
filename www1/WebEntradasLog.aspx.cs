@@ -21,29 +21,42 @@ namespace www1
             DataTable tablaEntradaLog = new DataTable();
             tablaEntradaLog.Columns.Add("Id.", typeof(String));
             tablaEntradaLog.Columns.Add("Email", typeof(String));
-            tablaEntradaLog.Columns.Add("HoraAcceso", typeof(DateOnly));
 
-          /*  if (!Page.IsPostBack)
+            tablaEntradaLog.Columns.Add("Fecha", typeof(DateOnly));
+            tablaEntradaLog.Columns.Add("HoraAcceso", typeof(String));
+
+            tablaEntradaLog.Columns.Add("TipoAcceso", typeof(String));
+            tablaEntradaLog.Columns.Add("Entrada", typeof(String));
+
+            if (!Page.IsPostBack)
             {
-                foreach (EntradaLog entradaLog in )
+                foreach (EntradaLog el in WebForm1.db1.TblEntradaLog.Values)
                 {
-                    if (e != null)
+                    if (el != null)
                     {
-                        tablaEntradaLog.Rows.Add(e.IdLog, e.Usuario.EMail,e.Fecha);
+                        tablaEntradaLog.Rows.Add(el.IdLog, el.Usuario.EMail,el.Fecha,el.Hora.ToString(),el.Acceso.ToString(),el.Entrada.ToString());
                     }
                 }
                 gvwProyectos.DataSource = tablaEntradaLog;
                 gvwProyectos.DataBind();
-            }*/
+            }
 
         }
 
         protected void gvwProyectos_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            
+            int row = Convert.ToInt32(e.CommandArgument);
+            Session["proyectoSeleccionado"] = gvwProyectos.Rows[row].Cells[0].Text;
 
         }
 
- 
+        protected void VolverAGestor(object sender, EventArgs e) {
+
+            Server.Transfer("GestorWeb.aspx", true);
+        
+        }
+
+
+
     }
 }
