@@ -21,6 +21,13 @@ namespace LibreriaDeClases
         private readonly string patron3 = "[0-9]";
         private readonly string patron4 = "[a-zA-Z]";
 
+        /// <summary>
+        /// Constructor de usuario
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellidos"></param>
+        /// <param name="eMail"></param>
+        /// <param name="contrasenya"></param>
         public Usuario(string nombre, string apellidos, string eMail, string contrasenya)
         {
             if(nombre == null || apellidos == null || eMail == null || contrasenya == null)
@@ -42,30 +49,36 @@ namespace LibreriaDeClases
             contadorId++;
         }
 
+        /// <summary>
+        /// Id del usuario
+        /// </summary>
         public Int16 IdUsuario  //El constructor del atriburo(por eso las mayusculas)
         {
             get { return idPropietario; }
             set { idPropietario = value; }
         }
 
-        public Int16 ContadorId
-        {
-            get { return contadorId; }
-            set { contadorId = value; }
-        }
-
+        /// <summary>
+        /// Nombre del usuario
+        /// </summary>
         public String Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
 
+        /// <summary>
+        /// Apellidos del usuario
+        /// </summary>
         public String Apellidos
         {
             get { return apellidos; }
             set { apellidos = value; }
         }
 
+        /// <summary>
+        /// Email del usuario
+        /// </summary>
         public string EMail
         {
             get { return eMail; }
@@ -73,6 +86,9 @@ namespace LibreriaDeClases
             { eMail = value; }
         }
 
+        /// <summary>
+        /// Contrasenya del usuario
+        /// </summary>
         public String Contrasenya
         {
             get { return contrasenya; }
@@ -80,24 +96,38 @@ namespace LibreriaDeClases
             { contrasenya = value; }
         }
 
+        /// <summary>
+        /// Usuario es gestor o no
+        /// </summary>
         public Boolean Gestor
         {
             get { return gestor; }
             set { gestor = value; }
         }
 
+        /// <summary>
+        /// Contador de entradas del usuario
+        /// </summary>
         public Int16 ContadorSecretos
         {
             get { return contadorSecretos; }
             set { contadorSecretos = value; }
         }
 
+        /// <summary>
+        /// Tiempo del primer secreto de la hora del usuario
+        /// </summary>
         public TimeOnly TiempoPrimerSecreto
         {
             get { return tiempoPrimerSecreto; }
             set { tiempoPrimerSecreto = value; }
         }
 
+        /// <summary>
+        /// Metodo para encriptar la contrasenya
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public string encriptar(string password)
         {
             byte[] bytes = System.Text.Encoding.UTF8.GetBytes(password);
@@ -206,6 +236,10 @@ namespace LibreriaDeClases
                           tiempoPrimerSecreto = TimeOnly.FromDateTime(DateTime.Now);
                     }
                     entrada = new Entrada(this, contrasenya, nombreEntrada);
+                    if (entrada.IdEntrada == -1)
+                    {
+                        return null;
+                    }
                     contadorSecretos++;
                 }
                 else

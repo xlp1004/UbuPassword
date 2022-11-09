@@ -23,50 +23,17 @@ namespace DBPruebas
         private Usuario usuarioPruebaNoGestor = new Usuario("Cualquiera", "Normal", "user@ubu.es", "6789abcd");
         private static DBPrueba instanciada;
         private static bool cargarDatos;
+
+        /// <summary>
+        /// Constructor de la base de datos
+        /// </summary>
         public DBPrueba() {
-          
-            /*tblUsuario = new SortedList<int, Usuario>();
-            tblEntrada = new SortedList<int, Entrada>();
-            tblEntradaLog = new SortedList<int, EntradaLog>();*/
             usuarioPruebaGestor.Gestor = true;
             InsertarUsuario(usuarioPruebaGestor);
             InsertarUsuario(usuarioPruebaNoGestor);
 
         }
 
-        public static DBPrueba cargarDB()
-        {
-
-            if (instanciada == null)
-            {
-                instanciada = new DBPrueba();
-                cargarDatos = false;
-            }
-            return instanciada;
-
-        }
-
-        public static void EjemplosDatos()
-        {
-            if (cargarDatos == false)
-            {
-                DBPrueba db = cargarDB();
-                //Usuario Gestor 
-                Usuario usuarioAlvaro = new Usuario("Alvaro", "Lopez", "Alv@ubu.es", "pass1234");
-                usuarioAlvaro.Gestor = true;
-                //Usuario Normal
-                Usuario usuarioAdolfo = new Usuario("Adolfo", "Vine", "avg@ubu.es", "pass4567");
-
-
-                // Insert all sample data to DB.
-                db.InsertarUsuario(usuarioAlvaro);
-                db.InsertarUsuario(usuarioAdolfo);
-
-
-                // Confirm data load.
-                cargarDatos = true;
-            }
-        }
         /// <summary>
         /// devuelve el numero de usuarios.
         /// </summary>
@@ -177,6 +144,11 @@ namespace DBPruebas
             return tblUsuario.ContainsKey(id);
         }
 
+        /// <summary>
+        /// Devuelve si el usuario esta en la lista, por email
+        /// </summary>
+        /// <param name="eMail"></param>
+        /// <returns></returns>
         public bool ContainUsuario(string eMail)
         {
             if (eMail == null)

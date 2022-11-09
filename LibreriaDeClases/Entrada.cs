@@ -22,6 +22,12 @@ namespace LibreriaDeClases
         private readonly string patron2 = "[0-9]";
         private readonly string patron3 = "[a-zA-Z]";
 
+        /// <summary>
+        /// Constructor de las entradas
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="contrasenya"></param>
+        /// <param name="nombreEntrada"></param>
         public Entrada(Usuario usuario, String contrasenya, String nombreEntrada)
         {
             if (usuario == null || contrasenya == null || nombreEntrada == null)
@@ -39,45 +45,70 @@ namespace LibreriaDeClases
             this.contrasenya = Encriptar(contrasenya);
             usuarios = new List<Usuario>();
             this.nombreEntrada = nombreEntrada;
+            this.descripcion = nombreEntrada;
             usuarios.Add(usuario);
             contadorId++;
         }
 
+        /// <summary>
+        /// Id de las entradas
+        /// </summary>
         public Int16 IdEntrada
         {
             get { return idEntrada; }
             set { idEntrada = value; }
         }
 
+        /// <summary>
+        /// Nombre de las entradas
+        /// </summary>
         public String NombreEntrada
         {
             get { return nombreEntrada; }
             set { nombreEntrada = value; }
         }
+
+        /// <summary>
+        /// Descripcion de las entradas
+        /// </summary>
         public String Descripcion
         {
             get { return descripcion; }
             set { descripcion = value; }
         }
 
+        /// <summary>
+        /// Usuario de la entrada
+        /// </summary>
         public Usuario Usuario
         {
             get { return usuario; }
             set { usuario = value; }
         }
 
+        /// <summary>
+        /// Contrasenya de la entrada
+        /// </summary>
         public String Contrasenya
         {
             get { return contrasenya; }
             set { contrasenya = value; }
         }
 
+        /// <summary>
+        /// Lista de usuarios que pueden acceder a la entrada
+        /// </summary>
         public List<Usuario> Usuarios
         {
             get { return usuarios; }
             set { usuarios = value; }
         }
 
+        /// <summary>
+        /// Metodo para encriptar la contrasenya de la entrada
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public string Encriptar(string password)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(password);

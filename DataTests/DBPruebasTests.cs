@@ -27,27 +27,36 @@ namespace DBPruebas.Tests
         private const TipoAcceso acceso = TipoAcceso.Lectura;
         private EntradaLog entradaLog = new EntradaLog(usuario, entrada, acceso);
 
+        /// <summary>
+        /// Test sobre el numero de usuarios
+        /// </summary>
         [TestMethod()]
         public void NumeroUsuarioTest()
         {
             Assert.IsTrue(dbPruebas.NumeroUsuario() == 2);
-            dbPruebas.InsertarUsuario(usuario);
+            dbPruebas.InsertarUsuario(usuario);                     //Al añadir un usuario aumenta el tamaño
             Assert.IsTrue(dbPruebas.NumeroUsuario() == 3);
         }
 
+        /// <summary>
+        /// Test sobre el numero de entradas
+        /// </summary>
         [TestMethod()]
         public void NumeroEntradasTest()
         {
             Assert.IsTrue(dbPruebas.NumeroEntradas() == 0);
-            dbPruebas.InsertarEntrada(entrada);
+            dbPruebas.InsertarEntrada(entrada);                     //Al añadir una entrada aumenta el tamaño
             Assert.IsTrue(dbPruebas.NumeroEntradas() == 1);
         }
 
+        /// <summary>
+        /// Test sobre el numero de entradasLog
+        /// </summary>
         [TestMethod()]
         public void NumeroEntradasLogTest()
         {
             Assert.IsTrue(dbPruebas.NumeroEntradasLog() == 0);
-            dbPruebas.InsertarEntradaLog(entradaLog);
+            dbPruebas.InsertarEntradaLog(entradaLog);               //Al añadir una entradalog aumenta el tamaño
             Assert.IsTrue(dbPruebas.NumeroEntradasLog() == 1);
         }
 
