@@ -187,30 +187,17 @@ namespace LibreriaDeClases
             {
                 return;
             }
+            else if (oldPassword.Equals(password))
+            {
+                return;
+            }
+            else if (password.Length < 8 || !Regex.IsMatch(password, patron3) || !Regex.IsMatch(password, patron4))
+            {
+                return;
+            }
             else if (encriptar(oldPassword).Equals(contrasenya))
             {
                  contrasenya = encriptar(password);
-            }
-        }
-
-        /// <summary>
-        /// Metodo para cambiar la contraseña de otro usuario, siempre que se sea gestor.
-        /// </summary>
-        /// <param name="oldPassword"></param>
-        /// <param name="password"></param>
-        /// <param name="usuario"></param>
-        public void CambiarContrasenyaUsuarioGestor(String oldPassword, String password, Usuario usuario)
-        {
-            if (gestor)
-            {
-                if (password == null || oldPassword == null || usuario == null)
-                {
-                    return;
-                }
-                else if (encriptar(oldPassword).Equals(usuario.contrasenya))
-                {
-                    usuario.contrasenya = encriptar(password);
-                }
             }
         }
 

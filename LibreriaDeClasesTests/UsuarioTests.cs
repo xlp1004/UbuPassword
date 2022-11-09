@@ -218,40 +218,21 @@ namespace LibreriaDeClases.Tests
             usuarioPrueba4.CambiarContrasenya(null, Password2);
             Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password));            // Vieja contraseña null. Usuario sigue con su contraseña vieja
 
+            usuarioPrueba4.CambiarContrasenya(Password, Password);
+            Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password));            // Las contraseñas coinciden. No cambia
+
+            usuarioPrueba4.CambiarContrasenya(Password, "12345678");
+            Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password));
+            usuarioPrueba4.CambiarContrasenya(Password, "abcdefghij");
+            Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password));
+            usuarioPrueba4.CambiarContrasenya(Password, "1a");
+            Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password));             //Las contraseñas no siguen el patron. No cambia
+
             usuarioPrueba4.CambiarContrasenya("otraPass123", Password2);
             Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password));            // Vieja contraseña no coincide. Usuario sigue con su contraseña vieja
 
             usuarioPrueba4.CambiarContrasenya(Password, Password2);
             Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password2));           // La contraseña se cambia
-        }
-
-        /// <summary>
-        /// Test sobre el metodo de cambiar la contrasenya de otro usuario
-        /// </summary>
-        [TestMethod()]
-        public void CambiarContrasenyaUsuarioGestorTest()
-        {
-            Usuario usuarioPrueba4 = new Usuario(Nombre, Apellidos, Email, Password);
-
-            usuarioPrueba.CambiarContrasenyaUsuarioGestor(Password, Password2, usuarioPrueba4);
-            Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password));            //Usuario no es gestor
-
-            usuarioPrueba.Gestor = true;
-
-            usuarioPrueba.CambiarContrasenyaUsuarioGestor(null, Password2, usuarioPrueba4);
-            Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password));            // Vieja contraseña null. Usuario sigue con su contraseña vieja
-
-            usuarioPrueba.CambiarContrasenyaUsuarioGestor(Password, null, usuarioPrueba4);
-            Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password));            // Nueva contraseña null. Usuario sigue con su contraseña vieja
-
-            usuarioPrueba.CambiarContrasenyaUsuarioGestor(Password, Password2, null);
-            Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password));            //Usuario a cambiar la contraseña no existe
-
-            usuarioPrueba.CambiarContrasenyaUsuarioGestor("otraPass123", Password2, usuarioPrueba4);
-            Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password));           // Vieja contraseña no coincide. Usuario sigue con su contraseña vieja
-
-            usuarioPrueba.CambiarContrasenyaUsuarioGestor(Password, Password2, usuarioPrueba4);
-            Assert.AreEqual(usuarioPrueba4.Contrasenya, usuarioPrueba4.encriptar(Password2));          // La contraseña se cambia
         }
 
         /// <summary>
