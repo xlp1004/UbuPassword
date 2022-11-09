@@ -82,11 +82,15 @@ namespace www1
             {
                 if (usuarioIS.Gestor == true)
                 {
+                    EntradaLog entradalog = new EntradaLog(usuarioIS);
+                    db1.InsertarEntradaLog(entradalog);
                     registrado = true;
                     Server.Transfer("GestorWeb.aspx", true);
                  
                 }
                 else {
+                    EntradaLog entradalog = new EntradaLog(usuarioIS);
+                    db1.InsertarEntradaLog(entradalog);
                     registrado = true;
                     Server.Transfer("UsuarioWeb.aspx", true);
                   
