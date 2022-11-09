@@ -23,11 +23,11 @@ namespace DBPruebas
         private Usuario usuarioPruebaNoGestor = new Usuario("Cualquiera", "Normal", "user@ubu.es", "pass1234");
         private static DBPrueba instanciada;
         private static bool cargarDatos;
+
+        /// <summary>
+        /// Constructor de la base de datos
+        /// </summary>
         public DBPrueba() {
-          
-            /*tblUsuario = new SortedList<int, Usuario>();
-            tblEntrada = new SortedList<int, Entrada>();
-            tblEntradaLog = new SortedList<int, EntradaLog>();*/
             usuarioPruebaGestor.Gestor = true;
             InsertarUsuario(usuarioPruebaGestor);
             InsertarUsuario(usuarioPruebaNoGestor);
@@ -163,6 +163,11 @@ namespace DBPruebas
             return tblUsuario.ContainsKey(id);
         }
 
+        /// <summary>
+        /// Devuelve si el usuario esta en la lista, por email
+        /// </summary>
+        /// <param name="eMail"></param>
+        /// <returns></returns>
         public bool ContainUsuario(string eMail)
         {
             if (eMail == null)

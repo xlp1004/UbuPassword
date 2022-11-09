@@ -48,9 +48,7 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarUsuario(usuario);
             Assert.IsTrue(dbPruebas.NumeroUsuario() == 3);
         }
-        /// <summary>
-        /// Comprueba el numero de entradas en la base de datos
-        /// </summary>
+
         [TestMethod()]
         public void NumeroEntradasTest()
         {
@@ -58,9 +56,7 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarEntrada(entrada);
             Assert.IsTrue(dbPruebas.NumeroEntradas() == 1);
         }
-        /// <summary>
-        /// Comprueba el numero de las entradas log en la base de datos
-        /// </summary>
+
         [TestMethod()]
         public void NumeroEntradasLogTest()
         {
