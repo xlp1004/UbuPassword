@@ -17,11 +17,7 @@
                  <Columns>
                      <asp:BoundField DataField="Id." HeaderText="Id." />
                      <asp:BoundField DataField="Email" HeaderText="Email" />
-                     <asp:BoundField DataField="Entrada" HeaderText="Entrada" />
-                     <asp:BoundField DataField="TipoAcceso" HeaderText="TipoAcceso" />
                      <asp:BoundField DataField="HoraAcceso" HeaderText="HoraAcceso" />
-                    
-                    
                  </Columns>
 </asp:GridView>
     </form>

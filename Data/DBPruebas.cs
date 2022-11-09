@@ -19,8 +19,8 @@ namespace DBPruebas
         private SortedList<int, Usuario> tblUsuario = new SortedList<int, Usuario>();
         private SortedList<int, Entrada> tblEntrada = new SortedList<int, Entrada>();
         private SortedList<int, EntradaLog> tblEntradaLog = new SortedList<int, EntradaLog>();
-        private Usuario usuarioPruebaGestor = new Usuario("Gestor", "Original", "admin@ubu.es", "1234abcd");
-        private Usuario usuarioPruebaNoGestor = new Usuario("Cualquiera", "Normal", "user@ubu.es", "6789abcd");
+        private Usuario usuarioPruebaGestor = new Usuario("Gestor", "Original", "admin@ubu.es", "abcd1234");
+        private Usuario usuarioPruebaNoGestor = new Usuario("Cualquiera", "Normal", "user@ubu.es", "pass1234");
         private static DBPrueba instanciada;
         private static bool cargarDatos;
         public DBPrueba() {
@@ -34,39 +34,25 @@ namespace DBPruebas
 
         }
 
-        public static DBPrueba cargarDB()
+        /// <summary>
+        /// Get y sets
+        /// </summary>
+        public SortedList<int, Usuario> TblUsuario
         {
-
-            if (instanciada == null)
-            {
-                instanciada = new DBPrueba();
-                cargarDatos = false;
-            }
-            return instanciada;
-
+           get { return tblUsuario; }
+           set { tblUsuario = value; }
+        }
+        public SortedList<int, Entrada> TblEntrada
+        {
+            get { return tblEntrada; }
+            set { tblEntrada = value; }
+        }
+        public SortedList<int, EntradaLog> TblEntradaLog
+        {
+            get { return tblEntradaLog; }
+            set { tblEntradaLog = value; }
         }
 
-        public static void EjemplosDatos()
-        {
-            if (cargarDatos == false)
-            {
-                DBPrueba db = cargarDB();
-                //Usuario Gestor 
-                Usuario usuarioAlvaro = new Usuario("Alvaro", "Lopez", "Alv@ubu.es", "pass1234");
-                usuarioAlvaro.Gestor = true;
-                //Usuario Normal
-                Usuario usuarioAdolfo = new Usuario("Adolfo", "Vine", "avg@ubu.es", "pass4567");
-
-
-                // Insert all sample data to DB.
-                db.InsertarUsuario(usuarioAlvaro);
-                db.InsertarUsuario(usuarioAdolfo);
-
-
-                // Confirm data load.
-                cargarDatos = true;
-            }
-        }
         /// <summary>
         /// devuelve el numero de usuarios.
         /// </summary>

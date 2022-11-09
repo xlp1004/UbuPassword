@@ -38,10 +38,11 @@ namespace www1
             String nombreEntrada = EntradaNombre_Input.Text;
             String passwordEntrada = Password_Input.Text;
 
+            
 
+        
 
-
-            if (uIS.ContadorSecretos < 4 )
+            if (uIS.ContadorSecretos < 5 )
             {
                 if (nombreEntrada == "" || passwordEntrada == "" || uIS == null)
                 {
@@ -53,14 +54,20 @@ namespace www1
                     
                     Entrada entrada = uIS.CrearEntrada(passwordEntrada, nombreEntrada);
                     WebForm1.db1.InsertarEntrada(entrada);
-
+                    EntradaLog entradaLog = new EntradaLog(uIS, entrada, TipoAcceso.Escritura);
+                    WebForm1.db1.InsertarEntradaLog(entradaLog);
                     Response.Write("<script>alert('Entrada Creada')</script>");
+                    return;
                 }
 
             }
-            else { Response.Write("<script>alert('Has Superado los 5 secretos por hora ')</script>");
+            else {
+                Response.Write("<script>alert('Has Superado los 5 secretos por hora ')</script>");
+                Response.Write("Has completado los 5 secretos por hora");
 
             }
+
+
 
 
         }

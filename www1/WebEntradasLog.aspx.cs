@@ -13,10 +13,10 @@ namespace www1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*if (WebForm1.registrado == false)
+            if (WebForm1.registrado == false)
             {
                 Response.Redirect("https://localhost:44338/InicioSesion.aspx");
-            }*/
+            }
 
             DataTable tablaEntradaLog = new DataTable();
             tablaEntradaLog.Columns.Add("Id.", typeof(String));
@@ -43,5 +43,7 @@ namespace www1
             
 
         }
+
+ 
     }
 }
