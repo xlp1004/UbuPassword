@@ -12,7 +12,8 @@ namespace LibreriaDeClases
     public enum TipoAcceso
     {
         Lectura,
-        Escritura
+        Escritura,
+        LogIn
     }
 
     public class EntradaLog
@@ -44,6 +45,26 @@ namespace LibreriaDeClases
             this.usuario = usuario;
             this.entrada = entrada;
             this.acceso = acceso;
+            contadorId++;
+        }
+
+        /// <summary>
+        /// Contrustor de entradasLog al iniciar sesion
+        /// </summary>
+        /// <param name="usuario"></param>
+        public EntradaLog(Usuario usuario)
+        {
+            if(usuario == null)
+            {
+                idLog = -1;
+                return;
+            }
+            IdLog = contadorId;
+            fecha = DateOnly.FromDateTime(DateTime.Now);
+            hora = TimeOnly.FromDateTime(DateTime.Now);
+            entrada = null;
+            acceso = TipoAcceso.LogIn;
+            this.usuario = usuario;
             contadorId++;
         }
 

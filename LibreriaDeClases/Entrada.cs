@@ -165,24 +165,5 @@ namespace LibreriaDeClases
             }
             return usuarios.Remove(usuario);
         }
-
-        /// <summary>
-        /// Crea una entradaLog cuando el usuario lee una entrada.
-        /// </summary>
-        /// <param name="entrada"></param>
-        /// <returns></returns>
-        public EntradaLog LeerEntrada(Usuario usuario)
-        {
-            if (usuario == null)
-            {
-                return null;
-            }
-            if (!usuarios.Contains(usuario))
-            {
-                return null;
-            }
-            EntradaLog entradaLog = new EntradaLog(usuario, this, TipoAcceso.Lectura);
-            return entradaLog;
-        }
     }
 }

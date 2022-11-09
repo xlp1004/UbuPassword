@@ -237,23 +237,5 @@ namespace LibreriaDeClases.Tests
             Assert.IsTrue(entradaPrueba3.Usuarios.Count == 1);
 
         }
-
-        /// <summary>
-        /// Test sobre el metodo de leer entradasLog sobre esta entrada
-        /// </summary>
-        [TestMethod]
-        public void LeerEntradaTest()
-        {
-            Assert.IsNull(entradaPrueba.LeerEntrada(null));                             //Leer usuario null
-            Assert.IsNull(entradaPrueba.LeerEntrada(usuarioPrueba2));                   //la entrada no contiene estos usuarios en su lista
-            Assert.IsNull(entradaPrueba2.LeerEntrada(usuarioPrueba));
-
-            EntradaLog entradaLog = entradaPrueba.LeerEntrada(usuarioPrueba);           //Entrada leida correctamente
-            Assert.IsNotNull(entradaLog);
-            Assert.AreEqual(entradaLog.Usuario, usuarioPrueba);
-            Assert.AreEqual(entradaLog.Entrada, entradaPrueba);
-            Assert.AreEqual(entradaLog.Acceso, TipoAcceso.Lectura);
-
-        }
     }
 }
