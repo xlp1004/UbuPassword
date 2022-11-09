@@ -9,16 +9,27 @@ using LibreriaDeClases;
 
 namespace DBPruebas.Tests
 {
+    /// <summary>
+    /// Clase para probar los metodos de DBPrueba
+    /// </summary>
     [TestClass()]
     public class DBPruebasTests
     {
+        /// <summary>
+        /// Inicializalizamos la base de datos
+        /// </summary>
         DBPrueba dbPruebas = new DBPrueba();
 
-
+        /// <summary>
+        /// Atributos para generar usuario
+        /// </summary>
         private const string Nombre = "Alvaro";
         private const string Apellidos = "Lopez";
         private const string Email = "Alv@ubu.es";
         private const string Password = "pass1234";
+        /// <summary>
+        /// Inicializamos el usuario
+        /// </summary>
         private static Usuario usuario = new Usuario(Nombre, Apellidos, Email, Password);
 
         private const String nombreEntrada = "Entrada";
@@ -28,38 +39,34 @@ namespace DBPruebas.Tests
         private EntradaLog entradaLog = new EntradaLog(usuario, entrada, acceso);
 
         /// <summary>
-        /// Test sobre el numero de usuarios
+        /// Comprueba el numero de usuarios en la base de datos
         /// </summary>
         [TestMethod()]
         public void NumeroUsuarioTest()
         {
             Assert.IsTrue(dbPruebas.NumeroUsuario() == 2);
-            dbPruebas.InsertarUsuario(usuario);                     //Al añadir un usuario aumenta el tamaño
+            dbPruebas.InsertarUsuario(usuario);
             Assert.IsTrue(dbPruebas.NumeroUsuario() == 3);
         }
 
-        /// <summary>
-        /// Test sobre el numero de entradas
-        /// </summary>
         [TestMethod()]
         public void NumeroEntradasTest()
         {
             Assert.IsTrue(dbPruebas.NumeroEntradas() == 0);
-            dbPruebas.InsertarEntrada(entrada);                     //Al añadir una entrada aumenta el tamaño
+            dbPruebas.InsertarEntrada(entrada);
             Assert.IsTrue(dbPruebas.NumeroEntradas() == 1);
         }
 
-        /// <summary>
-        /// Test sobre el numero de entradasLog
-        /// </summary>
         [TestMethod()]
         public void NumeroEntradasLogTest()
         {
             Assert.IsTrue(dbPruebas.NumeroEntradasLog() == 0);
-            dbPruebas.InsertarEntradaLog(entradaLog);               //Al añadir una entradalog aumenta el tamaño
+            dbPruebas.InsertarEntradaLog(entradaLog);
             Assert.IsTrue(dbPruebas.NumeroEntradasLog() == 1);
         }
-
+        /// <summary>
+        /// Comprueba si contiene una entrada
+        /// </summary>
         [TestMethod()]
         public void ContieneEntradaEntradaTest()
         {
@@ -68,7 +75,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarEntrada(entrada);
             Assert.IsTrue(dbPruebas.ContieneEntrada(entrada));
         }
-
+        /// <summary>
+        /// Comprueba si contiene una entrada usando la id
+        /// </summary>
         [TestMethod()]
         public void ContieneEntradaIdTest()
         {
@@ -77,7 +86,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarEntrada(entrada);
             Assert.IsTrue(dbPruebas.ContieneEntrada(entrada.IdEntrada));
         }
-
+        /// <summary>
+        /// Comprueba su contiene la entrada log 
+        /// </summary>
         [TestMethod()]
         public void ContainsEntradaLogEntradaTest()
         {
@@ -86,7 +97,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarEntradaLog(entradaLog);
             Assert.IsTrue(dbPruebas.ContainsEntradaLog(entradaLog));
         }
-
+        /// <summary>
+        /// Comprueba si contiene la entradalog usando el id
+        /// </summary>
         [TestMethod()]
         public void ContainsEntradaLogIdTest()
         {
@@ -95,7 +108,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarEntradaLog(entradaLog);
             Assert.IsTrue(dbPruebas.ContainsEntradaLog(entradaLog.IdLog));
         }
-
+        /// <summary>
+        /// Compureba si contiene un usuario 
+        /// </summary>
         [TestMethod()]
         public void ContainsUsuarioUsuarioTest()
         {
@@ -104,7 +119,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarUsuario(usuario);
             Assert.IsTrue(dbPruebas.ContainsUsuario(usuario));
         }
-
+        /// <summary>
+        /// Comprueba si contiene un usuario usando el id 
+        /// </summary>
         [TestMethod()]
         public void ContainsUsuarioIdTest()
         {
@@ -113,7 +130,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarUsuario(usuario);
             Assert.IsTrue(dbPruebas.ContainsUsuario(usuario.IdUsuario));
         }
-
+        /// <summary>
+        /// Comprueba si contiene el usuario usando el email
+        /// </summary>
         [TestMethod()]
         public void ContainsUsuarioEMailTest()
         {
@@ -122,7 +141,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarUsuario(usuario);
             Assert.IsTrue(dbPruebas.ContainUsuario(usuario.EMail));
         }
-
+        /// <summary>
+        /// Lee la entrada usando la id
+        /// </summary>
         [TestMethod()]
         public void LeeEntradaTest()
         {
@@ -131,7 +152,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarEntrada(entrada);
             Assert.AreEqual(dbPruebas.LeeEntrada(entrada.IdEntrada), entrada);
         }
-
+        /// <summary>
+        /// Comprueba que lea la entradalog usando el id
+        /// </summary>
         [TestMethod()]
         public void LeeEntradaLogTest()
         {
@@ -140,7 +163,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarEntradaLog(entradaLog);
             Assert.AreEqual(dbPruebas.LeeEntradaLog(entradaLog.IdLog), entradaLog);
         }
-
+        /// <summary>
+        /// Comrpueba que lea el usuario usando el id
+        /// </summary>
         [TestMethod()]
         public void LeeUsuarioIdTest()
         {
@@ -149,6 +174,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarUsuario(usuario);
             Assert.AreEqual(dbPruebas.LeeUsuario(usuario.IdUsuario), usuario);
         }
+        /// <summary>
+        /// Comrpueba que lea el usuario usando el email
+        /// </summary>
 
         [TestMethod()]
         public void LeeUsuarioEMailTest()
@@ -158,7 +186,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarUsuario(usuario);
             Assert.AreEqual(dbPruebas.LeeUsuario(Email), usuario);
         }
-
+        /// <summary>
+        /// Comrpueba que se borra el usuario usando el id
+        /// </summary>
         [TestMethod()]
         public void BorrarUsuarioIdTest()
         {
@@ -167,7 +197,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarUsuario(usuario);
             Assert.IsTrue(dbPruebas.BorrarUsuario(usuario.IdUsuario));
         }
-
+        /// <summary>
+        /// Comrpueba que se borra el usuario usando el email
+        /// </summary>
         [TestMethod()]
         public void BorrarUsuarioEMailTest()
         {
@@ -176,7 +208,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarUsuario(usuario);
             Assert.IsTrue(dbPruebas.BorraUsuario(usuario.EMail));
         }
-
+        /// <summary>
+        /// Comrpueba que se borra el usuario 
+        /// </summary>
         [TestMethod()]
         public void BorrarUsuarioUsuarioTest()
         {
@@ -193,7 +227,9 @@ namespace DBPruebas.Tests
             Assert.IsFalse(dbPruebas.ContainsUsuario(usuario));
             Assert.IsFalse(entrada.Usuarios.Contains(usuario));
         }
-
+        /// <summary>
+        /// Comrpueba que se borra la entrada
+        /// </summary>
         [TestMethod()]
         public void BorraEntradaEntradaTest()
         {
@@ -202,7 +238,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarEntrada(entrada);
             Assert.IsTrue(dbPruebas.BorraEntrada(entrada));
         }
-
+        /// <summary>
+        /// Comprueba que se borra la entrada usando id
+        /// </summary>
         [TestMethod()]
         public void BorraEntradaIdTest()
         {
@@ -211,7 +249,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarEntrada(entrada);
             Assert.IsTrue(dbPruebas.BorraEntrada(entrada.IdEntrada));
         }
-
+        /// <summary>
+        /// Comprueba que se borra la entrada log
+        /// </summary>
         [TestMethod()]
         public void BorraEntradaLogEntradaTest()
         {
@@ -220,7 +260,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarEntradaLog(entradaLog);
             Assert.IsTrue(dbPruebas.BorraEntradaLog(entradaLog));
         }
-
+        /// <summary>
+        /// Comprueba que se borra la entradaLog usando id
+        /// </summary>
         [TestMethod()]
         public void BorraEntradaLogIdTest()
         {
@@ -229,7 +271,9 @@ namespace DBPruebas.Tests
             dbPruebas.InsertarEntradaLog(entradaLog);
             Assert.IsTrue(dbPruebas.BorraEntradaLog(entradaLog.IdLog));
         }
-
+        /// <summary>
+        /// Comprueba que se inserta la entrada 
+        /// </summary>
         [TestMethod()]
         public void InsertarEntradaTest()
         {
@@ -245,7 +289,9 @@ namespace DBPruebas.Tests
             Assert.IsFalse(dbPruebas.InsertarEntrada(entrada2));
             Assert.IsTrue(dbPruebas.NumeroEntradasLog() == 1);
         }
-
+        /// <summary>
+        /// Comprueba que se inserta el usuario 
+        /// </summary>
         [TestMethod()]
         public void InsertarUsuarioTest()
         {
@@ -265,7 +311,9 @@ namespace DBPruebas.Tests
             Assert.IsTrue(dbPruebas.InsertarUsuario(usuario3));
             Assert.IsTrue(dbPruebas.NumeroUsuario() == 4);
         }
-
+        /// <summary>
+        /// Comprueba que se inserta la entrada log
+        /// </summary>
         [TestMethod()]
         public void InsertarEntradaLogTest()
         {

@@ -19,8 +19,8 @@ namespace DBPruebas
         private SortedList<int, Usuario> tblUsuario = new SortedList<int, Usuario>();
         private SortedList<int, Entrada> tblEntrada = new SortedList<int, Entrada>();
         private SortedList<int, EntradaLog> tblEntradaLog = new SortedList<int, EntradaLog>();
-        private Usuario usuarioPruebaGestor = new Usuario("Gestor", "Original", "admin@ubu.es", "1234abcd");
-        private Usuario usuarioPruebaNoGestor = new Usuario("Cualquiera", "Normal", "user@ubu.es", "6789abcd");
+        private Usuario usuarioPruebaGestor = new Usuario("Gestor", "Original", "admin@ubu.es", "abcd1234");
+        private Usuario usuarioPruebaNoGestor = new Usuario("Cualquiera", "Normal", "user@ubu.es", "pass1234");
         private static DBPrueba instanciada;
         private static bool cargarDatos;
 
@@ -32,6 +32,25 @@ namespace DBPruebas
             InsertarUsuario(usuarioPruebaGestor);
             InsertarUsuario(usuarioPruebaNoGestor);
 
+        }
+
+        /// <summary>
+        /// Get y sets
+        /// </summary>
+        public SortedList<int, Usuario> TblUsuario
+        {
+           get { return tblUsuario; }
+           set { tblUsuario = value; }
+        }
+        public SortedList<int, Entrada> TblEntrada
+        {
+            get { return tblEntrada; }
+            set { tblEntrada = value; }
+        }
+        public SortedList<int, EntradaLog> TblEntradaLog
+        {
+            get { return tblEntradaLog; }
+            set { tblEntradaLog = value; }
         }
 
         /// <summary>
