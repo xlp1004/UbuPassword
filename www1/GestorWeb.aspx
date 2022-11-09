@@ -29,6 +29,19 @@
 
        <button class="cybr-btn" type="submit">
               
+                <asp:Button ID="BotonCrearUsuario" runat="server" OnClick="CrearUsuarioOnClick" Text="Crear Usuario" CssClass="cybr-btn" />              
+                <span aria-hidden class="cybr-btn__glitch">Crear Usuario</span>
+                <span aria-hidden class="cybr-btn__tag">22/23</span>
+        </button>
+        
+       <button class="cybr-btn" type="submit">
+              
+                <asp:Button ID="BorrarUsuarioButton" runat="server" OnClick="BorrarUsuarioOnClick" Text="Borrar Usuario" CssClass="cybr-btn" />              
+                <span aria-hidden class="cybr-btn__glitch">Borrar Usuario</span>
+                <span aria-hidden class="cybr-btn__tag">22/23</span>
+        </button>
+       <button class="cybr-btn" type="submit">
+              
                 <asp:Button ID="CerrarSesiónButton" runat="server" OnClick="CerrarSesion_Click" Text="Cerrar Sesión" CssClass="cybr-btn" />
                 <span aria-hidden class="cybr-btn__glitch">Enviar</span>
                 <span aria-hidden class="cybr-btn__tag">22/23</span>

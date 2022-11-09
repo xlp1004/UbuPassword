@@ -11,7 +11,7 @@ namespace www1
 {
 
 
-    public partial class WebForm2
+    public partial class CambiarContraseña
     {
 
         /// <summary>
@@ -24,48 +24,39 @@ namespace www1
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control CambiarAUsuarioButton.
+        /// Control Password_Input.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CambiarAUsuarioButton;
+        protected global::System.Web.UI.WebControls.TextBox Password_Input;
 
         /// <summary>
-        /// Control VerEntradaLogs.
+        /// Control NuevaContra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button VerEntradaLogs;
+        protected global::System.Web.UI.WebControls.TextBox NuevaContra;
 
         /// <summary>
-        /// Control BotonCrearUsuario.
+        /// Control NuevaContraConf.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BotonCrearUsuario;
+        protected global::System.Web.UI.WebControls.TextBox NuevaContraConf;
 
         /// <summary>
-        /// Control BorrarUsuarioButton.
+        /// Control CambiarContra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BorrarUsuarioButton;
-
-        /// <summary>
-        /// Control CerrarSesiónButton.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CerrarSesiónButton;
+        protected global::System.Web.UI.WebControls.Button CambiarContra;
     }
 }

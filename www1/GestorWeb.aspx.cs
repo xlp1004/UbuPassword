@@ -34,5 +34,15 @@ namespace www1
         {
             Server.Transfer("WebEntradasLog.aspx",true);
         }
+        protected void CrearUsuarioOnClick(object sender, EventArgs e)
+        {
+            Server.Transfer("CrearUsuarioGestorWeb.aspx", true);
+        }
+
+        protected void BorrarUsuarioOnClick(object sender, EventArgs e)
+        {
+            Server.Transfer("BorrarUsuarioGestorWeb.aspx", true);
+        }
+
     }
 }

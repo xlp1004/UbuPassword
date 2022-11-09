@@ -21,7 +21,10 @@ namespace www1
                 Response.Redirect("https://localhost:44338/InicioSesion.aspx");
              }
         }
-
+        protected void CambiarContraseña_Click(object sender, EventArgs e)
+        {
+            Server.Transfer("CambiarContraseña.aspx");
+        }
         protected void CerrarSesion_Click(object sender, EventArgs e)
         {
             WebForm1.registrado = false;
@@ -34,8 +37,7 @@ namespace www1
          
             String nombreEntrada = EntradaNombre_Input.Text;
             String passwordEntrada = Password_Input.Text;
-            Response.Write("Contador de secretos del usuarioIS: ");
-            Response.Write(uIS.contadorSecretos+1);
+
 
 
 
@@ -44,6 +46,7 @@ namespace www1
                 if (nombreEntrada == "" || passwordEntrada == "" || uIS == null)
                 {
                     Response.Write("<script>alert('Algún campo es nulo ')</script>");
+                    return;
                 }
                 else
                 {
@@ -55,7 +58,8 @@ namespace www1
                 }
 
             }
-            else { Response.Write("<script>alert('Has Superado los 5 secretos por hora ')</script>"); 
+            else { Response.Write("<script>alert('Has Superado los 5 secretos por hora ')</script>");
+
             }
 
 

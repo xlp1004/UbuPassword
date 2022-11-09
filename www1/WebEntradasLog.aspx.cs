@@ -23,7 +23,7 @@ namespace www1
             tablaEntradaLog.Columns.Add("Email", typeof(String));
             tablaEntradaLog.Columns.Add("HoraAcceso", typeof(DateOnly));
 
-            if (!Page.IsPostBack)
+          /*  if (!Page.IsPostBack)
             {
                 foreach (EntradaLog entradaLog in )
                 {
@@ -34,7 +34,7 @@ namespace www1
                 }
                 gvwProyectos.DataSource = tablaEntradaLog;
                 gvwProyectos.DataBind();
-            }
+            }*/
 
         }
 
