@@ -28,7 +28,7 @@ namespace www1
         {
             WebForm1.registrado = false;
 
-            Response.Redirect("https://localhost:44338/InicioSesion.aspx");
+            Response.Redirect("https://localhost:44312/InicioSesion.aspx");
         }
 
         protected void EntradaLog_Click(object sender, EventArgs e)
