@@ -16,6 +16,7 @@ namespace www1
         protected void Page_Load(object sender, EventArgs e)
         {
             if (WebForm1.registrado == false) {
+                
                 Server.Transfer("InicioSesion.aspx", true);
             }
         }

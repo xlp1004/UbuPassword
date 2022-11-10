@@ -15,9 +15,9 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44338</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressSSLPort>44312</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -70,6 +70,7 @@
     <Content Include="CrearUsuarioGestorWeb.aspx" />
     <Content Include="estilos.css" />
     <Content Include="Global.asax" />
+    <Content Include="UsuarioGestorWeb.aspx" />
     <Content Include="UsuarioWeb.aspx" />
     <Content Include="Web.config" />
     <Content Include="InicioSesion.aspx" />
@@ -115,6 +116,13 @@
     </Compile>
     <Compile Include="GestorWeb.aspx.designer.cs">
       <DependentUpon>GestorWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioGestorWeb.aspx.cs">
+      <DependentUpon>UsuarioGestorWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UsuarioGestorWeb.aspx.designer.cs">
+      <DependentUpon>UsuarioGestorWeb.aspx</DependentUpon>
     </Compile>
     <Compile Include="UsuarioWeb.aspx.cs">
       <DependentUpon>UsuarioWeb.aspx</DependentUpon>
@@ -169,7 +177,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58397</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44338/</IISUrl>
+          <IISUrl>https://localhost:44312/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

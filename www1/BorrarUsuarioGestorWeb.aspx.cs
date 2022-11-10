@@ -16,7 +16,8 @@ namespace www1
         {
             if (WebForm1.registrado == false)
             {
-                Response.Redirect("https://localhost:44338/InicioSesion.aspx");
+                Server.Transfer("InicioSesion.aspx", true);
+             
             }
         }
         protected void BorrarUsuarioOnClick(object sender, EventArgs e)

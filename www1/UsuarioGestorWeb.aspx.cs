@@ -10,14 +10,15 @@ using LibreriaDeClases;
 
 namespace www1
 {
-    public partial class UsuarioWeb : System.Web.UI.Page
+    public partial class UsuarioGestorWeb : System.Web.UI.Page
     {
         Usuario uIS = WebForm1.usuarioIS;
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
-             if (WebForm1.registrado == false) {
+            if (WebForm1.registrado == false)
+            {
 
                 Server.Transfer("InicioSesion.aspx", true);
 
@@ -33,13 +34,20 @@ namespace www1
 
             Response.Redirect("https://localhost:44312/InicioSesion.aspx");
         }
+        protected void GestorBackOnClick(object sender, EventArgs e)
+        {
+            if(uIS.Gestor == true && WebForm1.registrado == true) {
+                Server.Transfer("GestorWeb.aspx", true);
+            }
+  
+        }
 
         protected void EntradaButton_Click(object sender, EventArgs e)
         {
-         
+
             String nombreEntrada = EntradaNombre_Input.Text;
             String passwordEntrada = Password_Input.Text;
-            if (uIS.ContadorSecretos < 5 )
+            if (uIS.ContadorSecretos < 5)
             {
                 if (nombreEntrada == "" || passwordEntrada == "" || uIS == null)
                 {
@@ -48,18 +56,20 @@ namespace www1
                 }
                 else
                 {
-                    
+
                     Entrada entrada = uIS.CrearEntrada(passwordEntrada, nombreEntrada);
-                    if (entrada == null) {
+                    if (entrada == null)
+                    {
                         Response.Write("<script>alert('La contraseña debe incluir un longitud de más de 8 caracteres y un número ')</script>");
                     }
                     WebForm1.db1.InsertarEntrada(entrada);
-                   // Response.Write("<script>alert('Entrada Creada')</script>");
+                    // Response.Write("<script>alert('Entrada Creada')</script>");
                     return;
                 }
 
             }
-            else {
+            else
+            {
                 //Response.Write("<script>alert('Has Superado los 5 secretos por hora ')</script>");
                 Response.Write("Has completado los 5 secretos por hora");
             }
