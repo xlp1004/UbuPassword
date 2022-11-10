@@ -38,7 +38,7 @@ namespace www1
             String nombreEntrada = EntradaNombre_Input.Text;
             String passwordEntrada = Password_Input.Text;
 
-            
+
 
         
 
@@ -54,6 +54,9 @@ namespace www1
                     
                     Entrada entrada = uIS.CrearEntrada(passwordEntrada, nombreEntrada);
                     WebForm1.db1.InsertarEntrada(entrada);
+                    EntradaLog entradaLog = new EntradaLog(uIS, entrada, TipoAcceso.Escritura);
+                    WebForm1.db1.InsertarEntradaLog(entradaLog);
+                    
                     Response.Write("<script>alert('Entrada Creada')</script>");
                     return;
                 }

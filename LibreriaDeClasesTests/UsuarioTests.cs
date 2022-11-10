@@ -239,7 +239,7 @@ namespace LibreriaDeClases.Tests
         /// Test del metodo de crear entradas
         /// </summary>
         [TestMethod()]
-        public void CrearEntradaTest()
+       public void CrearEntradaTest()
         {
             Assert.IsTrue(usuarioPrueba.ContadorSecretos == 0);                                         //Contador de secretos por defecto es 0
             Entrada entrada = usuarioPrueba.CrearEntrada(Password, Nombre);
