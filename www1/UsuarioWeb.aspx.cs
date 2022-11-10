@@ -62,7 +62,6 @@ namespace www1
             else {
                 Response.Write("<script>alert('Has Superado los 5 secretos por hora ')</script>");
                 Response.Write("Has completado los 5 secretos por hora");
-
             }
 
 
