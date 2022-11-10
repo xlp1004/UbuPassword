@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.Net.Sockets;
 using LibreriaDeClases;
 
@@ -21,8 +20,6 @@ namespace DBPruebas
         private SortedList<int, EntradaLog> tblEntradaLog = new SortedList<int, EntradaLog>();
         private Usuario usuarioPruebaGestor = new Usuario("Gestor", "Original", "admin@ubu.es", "abcd1234");
         private Usuario usuarioPruebaNoGestor = new Usuario("Cualquiera", "Normal", "user@ubu.es", "pass1234");
-        private static DBPrueba instanciada;
-        private static bool cargarDatos;
 
         /// <summary>
         /// Constructor de la base de datos
