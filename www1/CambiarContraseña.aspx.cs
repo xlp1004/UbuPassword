@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibreriaDeClases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,7 +15,8 @@ namespace www1
             if (WebForm1.registrado == false)
             {
 
-                Response.Redirect("https://localhost:44338/InicioSesion.aspx");
+                Server.Transfer("InicioSesion.aspx", true);
+
             }
         }
 
@@ -55,6 +57,9 @@ namespace www1
                 
                 
                 WebForm1.usuarioIS.CambiarContrasenya(viejacontra,nuevacontraconf);
+                Usuario usuarioN = WebForm1.usuarioIS;
+                WebForm1.db1.BorrarUsuario(WebForm1.usuarioIS);
+                WebForm1.db1.InsertarUsuario(usuarioN);
                 Response.Write("<script>alert('Contraseña cambiada con éxito')</script>");
                 Server.Transfer("UsuarioWeb.aspx", true);
             }

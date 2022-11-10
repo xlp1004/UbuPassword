@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UsuarioWeb.aspx.cs" Inherits="www1.UsuarioWeb" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UsuarioGestorWeb.aspx.cs" Inherits="www1.UsuarioGestorWeb" %>
 
 <!DOCTYPE html>
 <link href="estilos.css" rel="stylesheet" type="text/css" />
@@ -47,7 +47,15 @@
 
                 <button class="cybr-btn" type="submit">
               
-                <asp:Button ID="CerrarSesión" runat="server" OnClick="CerrarSesion_Click" Text="Cerrar Sesión" CssClass="cybr-btn" />
+                <asp:Button ID="IrGestor" runat="server" OnClick="GestorBackOnClick" Text="VolverAGestor" CssClass="cybr-btn" />
+                <span aria-hidden class="cybr-btn__glitch">VolverAGestor</span>
+                <span aria-hidden class="cybr-btn__tag">22/23</span>
+                
+        </button>
+        
+                <button class="cybr-btn" type="submit">
+              
+                <asp:Button ID="Button1" runat="server" OnClick="CerrarSesion_Click" Text="Cerrar Sesión" CssClass="cybr-btn" />
                 <span aria-hidden class="cybr-btn__glitch">Cerrar Sesión</span>
                 <span aria-hidden class="cybr-btn__tag">22/23</span>
                 

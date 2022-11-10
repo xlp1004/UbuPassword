@@ -13,14 +13,15 @@ namespace www1
         protected void Page_Load(object sender, EventArgs e)
         {
             if (WebForm1.registrado == false) {
-                
-                Response.Redirect("https://localhost:44338/InicioSesion.aspx");
+
+                Server.Transfer("InicioSesion.aspx", true);
+
             }
         }
 
         protected void CambiarAUsuario(object sender, EventArgs e)
         {
-            Server.Transfer("UsuarioWeb.aspx", true);
+            Server.Transfer("UsuarioGestorWeb.aspx", true);
         }
 
         protected void CerrarSesion_Click(object sender, EventArgs e)
